@@ -8,4 +8,4 @@ R2dbc Postgres
 R2dbc Pool
 
 # Framework
-Spring
+Spring, MVC

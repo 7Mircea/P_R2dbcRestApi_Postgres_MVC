@@ -40,7 +40,7 @@ class DatabaseConfiguration extends AbstractR2dbcConfiguration {
 
     private static final String DB_PROTOCOL = "postgresql";
     private static final String DB_DRIVER = "pool";
-    private int maxClientConnections = 1000;
+    private final int maxClientConnections = 1000;
 
     @Bean
     public ConnectionFactory connectionFactory() {

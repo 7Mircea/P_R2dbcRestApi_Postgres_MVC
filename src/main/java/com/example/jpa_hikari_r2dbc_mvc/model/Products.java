@@ -8,19 +8,17 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Setter
 @Getter
-@Table("produse")
-public class Produse {
+@Table
+public class Products {
     @Id
     @Column("id_prod")
     public Integer idProd; //NUMBER(10) in Oracle
-    @Column("den_prod")
-    public String denProd;
-    @Column("id_furnizor")
-    public int idFurnizor;
-    @Column
-    public String disponibilitate;
-    @Column
-    public String categorie;
-    @Column("info_supl")
-    public String infoSupl;
+    @Column("prod_name")
+    public String prodName;
+    @Column("id_supplier")
+    public int idSupplier;
+    public String availability;
+    public String category;
+    @Column("add_info")
+    public String addInfo;
 }
