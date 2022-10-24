@@ -1,4 +1,4 @@
-package com.example.jpa_hikari_r2dbc_mvc.repository;
+package com.example.r2dbc_mvc.repository;
 
 public class R2DBCURLSplitter {
     private String driverName;

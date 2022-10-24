@@ -1,4 +1,4 @@
-package com.example.jpa_hikari_r2dbc_mvc;
+package com.example.r2dbc_mvc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
