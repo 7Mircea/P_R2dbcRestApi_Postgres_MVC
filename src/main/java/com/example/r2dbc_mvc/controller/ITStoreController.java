@@ -5,6 +5,7 @@ import com.example.r2dbc_mvc.model.custom_query_return.*;
 import com.example.r2dbc_mvc.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 
 import java.util.List;
@@ -28,6 +29,11 @@ public class ITStoreController {
     @GetMapping("/products")
     public List<Products> getAllProducts() {
         return productsRepository.findAll().subscribeOn(Schedulers.parallel()).buffer().blockLast();
+    }
+
+    @GetMapping("/first_N_products")
+    public Flux<Products> getFirstNProducts(@RequestParam int N) {
+        return productsRepository.findProductsByIdProdIsBefore(N);
     }
 
     @GetMapping("/{id}")

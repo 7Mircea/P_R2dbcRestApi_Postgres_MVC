@@ -7,7 +7,7 @@ import org.springframework.data.r2dbc.repository.Query;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import reactor.core.publisher.Flux;
 
-public interface ProductsRepository extends R2dbcRepository<Products,Integer> {
+public interface ProductsRepository extends R2dbcRepository<Products, Integer> {
     @Query(value = "select distinct on (SS.category) category, SS.Product_name, SS.Profit\n" +
             "from (select S.category, S.prod_name Product_name, (S.sales - C.costs) Profit\n" +
             "    from (select p.category category, p.prod_name prod_name, sum(i.quantity * i.unit_price) sales\n" +
@@ -55,4 +55,6 @@ public interface ProductsRepository extends R2dbcRepository<Products,Integer> {
             "group by category\n" +
             "order by category;")
     Flux<CategoryProfit> findProfitForEachCategory();
+
+    Flux<Products> findProductsByIdProdIsBefore(int N);
 }
